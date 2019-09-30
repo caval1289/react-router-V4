@@ -4,7 +4,7 @@ class Home extends Component {
     render() {
         return (
             <div>
-                Bienvenue{this.props.match.params.id}
+                Bienvenue
             </div>
         )
     }
