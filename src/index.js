@@ -6,9 +6,10 @@ import thunk from "redux-thunk";
 import * as serviceWorker from './serviceWorker';
 import App from './components/App';
 import reducers from "./reducers";
+import { ActionCounter } from "./middlewares/action-counter"
 import { BrowserRouter } from "react-router-dom";
 
-const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
+const createStoreWithMiddleware = applyMiddleware(thunk, ActionCounter)(createStore);
 
 ReactDOM.render(
     <Provider
