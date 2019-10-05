@@ -22,6 +22,9 @@ class Header extends Component {
                         <Link className="nav-link" to="/">Accueil</Link>
                     </li>
                     <li className="nav-item">
+                        <Link className="nav-link" to="/liste">Liste</Link>
+                    </li>
+                    <li className="nav-item">
                         <Link className="nav-link" to="/ressources">Ressources</Link>
                     </li>
                     <li className="nav-item">
@@ -45,3 +48,5 @@ const mapStateToProps = state => {
 };
 
 export default connect(mapStateToProps, actions)(Header);
+//Pour l'envoyer sans connect (pour le test)
+export {Header}
