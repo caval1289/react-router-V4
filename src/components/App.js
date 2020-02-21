@@ -5,6 +5,7 @@ import Home from "./home";
 import TodoApp from "./todo-app"
 import Ressources from "./ressources";
 import RequireAuthentification from "../helpers/require-authentification";
+import Signin from "./signin";
 
 function App() {
   return (
@@ -12,8 +13,10 @@ function App() {
       <Header />
       <Switch>
         <Route exact path="/" component={Home} />
+        
         <Route exact path="/liste" component={RequireAuthentification(TodoApp)} />
         <Route exact path="/ressources" component={RequireAuthentification(Ressources)} />
+        <Route exact path ="/signin" component={Signin}/>
       </Switch>
     </div>
   );
