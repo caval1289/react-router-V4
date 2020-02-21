@@ -3,18 +3,18 @@ const bodyParser = require("body-parser") // permer de recupere les params quand
 const morgan = require("morgan"); // les log
 const expressServer = express(); // demares le serveur express
 const router = require("./route"); //route
-const http = require("http"); 
+const http = require("http");
 const mongoose = require("mongoose");
 
 require('dotenv').config()
 
 process.on('uncaughtException', async err => {
-    console.error('Uncaught exception', JSON.stringify(err));    
-  });
+    console.error('Uncaught exception', JSON.stringify(err));
+});
 
- mongoose.connect(`${process.env.MANGODB_URL}`,
+mongoose.connect(`${process.env.MANGODB_URL}`,
     { useNewUrlParser: true, useUnifiedTopology: true }
-) 
+)
 
 
 mongoose.connection
@@ -30,5 +30,5 @@ console.log("Le serveur écoute sur le port : ", port);
 
 process.on('uncaughtException', async err => {
     console.error('Uncaught exception', JSON.stringify(err));
-    
-  });
+
+});
