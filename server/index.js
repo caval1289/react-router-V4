@@ -5,6 +5,7 @@ const expressServer = express(); // demares le serveur express
 const router = require("./route"); //route
 const http = require("http");
 const mongoose = require("mongoose");
+const cors = require("cors")
 
 require('dotenv').config()
 
@@ -22,6 +23,7 @@ mongoose.connection
     .on("error", error => console.log("Erreur de connexion à MongoDB : ", error))
 expressServer.use(morgan("combined"))
 expressServer.use(bodyParser.json({ type: "*/*" }))
+expressServer.use(cors());
 router(expressServer);
 const port = 5000;
 const server = http.createServer(expressServer);

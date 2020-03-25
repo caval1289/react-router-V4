@@ -4,9 +4,7 @@ import * as actions from '../actions';
 import { Link } from "react-router-dom";
 
 class Header extends Component {
-    onClickAuthentification = () => {
-        this.props.setAuthentification(!this.props.isLoggedIn);
-    };
+
     renderAuthentificationLabel = () => {
         if (this.props.isLoggedIn) {
             return "Déconnexion";
@@ -31,7 +29,6 @@ class Header extends Component {
                         <Link
                             className="nav-link"
                             to={"/signin"}
-                            onClick={this.setAuthentification}
                         >
                             {this.renderAuthentificationLabel()}
                         </Link>
