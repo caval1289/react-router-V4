@@ -5,13 +5,24 @@ import { Link } from "react-router-dom";
 
 class Header extends Component {
 
-    renderAuthentificationLabel = () => {
-        if (this.props.isLoggedIn) {
-            return "Déconnexion";
-        } else {
-            return "Connexion";
-        }
-    }
+     renderAuthentificationLink = () => {
+         if(this.props.isLoggedIn){
+             return(
+                 <li className="nav-item">
+                    <Link className="nav-link" to={"/signout"}>Déconnexion</Link>
+                 </li>
+             )
+         }else{
+             return [
+                 <li key={1} className="nav-item">
+                    <Link className="nav-link" to={"/signin"}>Connexion</Link>
+                 </li>,
+                 <li key={2} className="nav-item">
+                    <Link className="nav-link" to={"/signup"}>Inscription</Link>
+                 </li>
+             ];
+         }
+     };
     render() {
         return (
             <div>
@@ -25,14 +36,7 @@ class Header extends Component {
                     <li className="nav-item">
                         <Link className="nav-link" to="/ressources">Ressources</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link
-                            className="nav-link"
-                            to={"/signin"}
-                        >
-                            {this.renderAuthentificationLabel()}
-                        </Link>
-                    </li>
+                        {this.renderAuthentificationLink()}
                 </ul>
             </div>
         )

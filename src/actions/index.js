@@ -21,7 +21,7 @@ export function addRessource() {
         type: ADD_RESSOURCE
     };
 }
-
+//localstorage info connexion 
 export function signinUser({ email, password }, history) {
     return function (dispatch) {
         axios.post(`${BASE_URl}/signin`, {
@@ -34,5 +34,13 @@ export function signinUser({ email, password }, history) {
         }).catch(error => {
             console.log(error)
         });
+    }
+}
+//localstorage deconnexion
+export function signoutUser(){
+    return function(dispatch){
+        dispatch(setAuthentification(false));
+        //detruire le token
+        localStorage.removeItem("token");
     }
 }
